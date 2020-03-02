@@ -1,0 +1,38 @@
+﻿
+<div class="row" id="NovoTodo">
+    <div class="columns">
+        <div class="column  is-half is-offset-one-quarter">
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                    <input class="input is-primary has-text-centered" type="text" placeholder="Nova tarefa..." v-model="tarefa">
+                </p>
+                <p class="control">
+                    <a class="button is-success add-button" v-on:click="adicionarTarefa">
+                        <span class="icon is-small">
+                            <i class="fa fa-plus"></i>
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    export default {
+        name: 'novo-todo',
+        data() {
+            return {
+                tarefa: ''
+            }
+        },
+        methods: {
+            enviarTarefa() {
+                if (this.tarefa != '') {
+                    this.$emit('novaTarefa', this.tarefa)
+                }
+                this.tarefa = ''
+            }
+        }
+    }
+</script>
